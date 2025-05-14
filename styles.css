@@ -1,243 +1,1040 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Novali Eriana Putri</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins";
+}
+
+.container, 
+.hero-content,
+.about-content,
+.skills,
+.portfolio,
+.testimonial {
+  width: 100%;
+  max-width: 100%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+body {
+    background-color: #013D5A;
+    color: #ffffff;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    padding-left: 60px;
+    padding-right: 70px;
+    background-color: #FCF3E3;
+    position: fixed;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar .logo img {
+    height: 40px;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+}
+
+.navbar ul li {
+    margin-left: 70px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #e78f35;
+}
+
+.navbar ul li a.active {
+    color: #e78f35;
+    text-decoration: underline;
+}
+
+.hamburger {
+    color: #000;
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger div {
+    width: 30px;
+    height: 3px;
+    background-color: #333;
+}
+
+.hamburger.active div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active div:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.hero {
+    background-color: #013D5A;
+    min-height: 100vh;
+    position: relative;
+    padding: 120px 40px 0;
+    padding-top: 100px; /* Sesuaikan dengan tinggi navbar */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin-top: 150px;
+    z-index: 2;
+}
+
+.hero-content h2 {
+    font-size: 20px;
+    margin-bottom: 11px;
+}
+
+.hero-content h1 {
+    font-weight: 100;
+    font-size: 28px;
+    margin-bottom: 11px;
+}
+
+.hero-content span {
+    font-weight: 500;
+    color: #FCF3E3;
+}
+
+.hero-content p {
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.hero .gambarhome {
+    max-width: 400px;
+    z-index: 2;
+    position: absolute;
+    right: 170px; 
+}
+
+.hero .gambarhome img {
+    max-width: 100%;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #F4A258;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #d67e26;
+    transform: translateY(-2px);
+}
+
+.wave {
+    width: 100vw; 
+    height: 300px; 
+    background-image: url('Wave.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    margin-top: 40px;
+}
+
+#home .logo {
+    font-size: 48px;
+    font-weight: bold;
+    color: #F4A258;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#home .logo span {
+    color: #fff;
+}
+
+.about {
+    background-color: #A8C1C0;
+    padding: 80px 40px;
+    width: 100%;
+    height: 1024px;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-top: 0;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.profile-pic {
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 40px;
+}
+
+.identity {
+    flex: 1;
+}
+
+.identity-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.identity-header h2 {
+    font-size: 24px;
+    color: #000;
+    margin-right: 15px;
+}
+
+.side-image {
+    width: 40px;
+    height: auto;
+}
+
+.identity ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.identity ul li {
+    position: relative;
+    margin-bottom: 12px;
+    color: #000;
+    padding-left: 15px;
+}
+
+.identity ul li::before {
+    content: "•";
+    position: absolute;
+    left: -10px;
+    color: #000;
+}
+
+.bubble {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.bubble img {
+    position: absolute;
+}
+
+.bubble1 {
+    top: 10%;
+    left: 5%;
+    width: 230px;
+    height: 188px;
+}
+
+.bubble2 {
+    top: 0%;
+    left: 42%;
+    width: 68px;
+    height: 68px;
+}
+
+.bubble3 {
+    top: 5%;
+    right: 5%;
+    width: 160px;
+    height: 160px;
+}
+
+.bubble4 {
+    bottom: 5%;
+    left: 5%;
+    width: 94px;
+    height: 136px;
+}
+
+.bubble5 {
+    bottom: 10%;
+    left: 27%;
+    width: 179px;
+    height: 204px;
+}
+
+.bubble6 {
+    bottom: 1%;
+    right: 2%;
+    width: 110px;
+    height: 110px;
+}
+
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.skill-box {
+    background-color: #013D5A;
+    color: white;
+    border-radius: 15px;
+    padding: 20px;
+    flex: 1;
+    min-width: 300px;
+}
+
+.skill-box h3 {
+    font-weight: 100;
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #F4A258;
+}
+
+.skill-box ul {
+    list-style-type: none;
+    padding-left: 20px;
+    color: #ffffff;
+}
+
+.skill-box ul li {
+    position: relative;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    color: #ffffff;
+}
+
+.skill-box ul li::before {
+    content: "•";
+    position: absolute;
+    left: -10px;
+    color: #ffffff;
+}
+
+.skills {
+    background-color: #013D5A;
+    padding: 60px;
+    color: #fff;
+    text-align: center;
+}
+
+.skills h2 {
+    color: #F4A258;
+    font-size: 28px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+}
+
+.skills h2::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #F4A258;
+    bottom: -0px;
+    left: 0;
+}
+
+.skill-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 49px 85px;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-bottom: 45px;
+    align-items: center;
+    justify-content: center;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+}
+
+.skill-number {
+    background: #FCF3E3;
+    color: #013D5A;
+    font-weight: 500;
+    padding: 15px 20px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    width: 60px;
+    height: 60px; 
+}
+
+.skill-text {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+    gap: 5px;
+}
+
+.skill-title {
+    font-size: 20px;
+}
+
+.skill-percentage {
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.skill-item:nth-child(1),
+.skill-item:nth-child(2),
+.skill-item:nth-child(3) {
+    grid-row: 1;
+}
+
+.skill-item:nth-child(4) {
+    grid-row: 2;
+    grid-column: 1 / span 2; 
+}
+
+.skill-item:nth-child(5) {
+    grid-row: 2;
+    grid-column: 2 / span 2; 
+    margin-left: 85px;
+}
+
+.why-hire {
+    background: #A8C1C0;
+    color: #013D5A;
+    padding: 15px;
+    border-radius: 15px;
+    margin: 45px auto;
+    width: 60%;
+}
+
+.why-hire h3 {
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.why-hire ul {
+    background: #B9CDCD;
+    border-radius: 15px;
+    list-style: none;
+    padding: 10px;
+}
+
+.testimonial {
+    margin-top: 50px;
+}
+
+.testimonial h3 {
+    background: #B9CDCD;
+    color: #013D5A;
+    border-radius: 15px;
+    list-style: none;
+    width: 16%;
+    font-weight: 500;
+    font-size: 20px;
+    padding: 10px;
+    margin: 45px auto;
+    margin-bottom: 20px;
+}
+
+.testimonial-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 71px;
+    max-width: 1350px;
+    margin: 0 auto;
+    text-align: center;
+    align-items: start;
+}
+
+.testimonial-item {
+    background: #013D5A;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.testimonial-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    margin-bottom: 20px;
+}
+
+.testimonial-item p {
+    font-size: 16px;
+    color: #fff;
+}
+
+.testimonial-item h4 {
+    font-weight: 400;
+    font-size: 16px;
+    color: #fff;
+}
+
+.portfolio {
+    background: #FCF3E3;
+    padding: 80px 40px;
+    width: 100%;
+    height: 1024px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-top: 0;
+}
+
+.portfolio h2 {
+    color: #013D5A;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: 180px;
+    margin-bottom: 60px;
+    position: relative;
+    display: inline-block;
+}
+
+.portfolio h2::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #013D5A;
+    bottom: -0px;
+    left: 0;
+}
+
+.portfolio-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 70px;
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.portfolio-item {
+    background: #013D5A;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.portfolio-item img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.portfolio-item p {
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.wave2 {
+    width: 100vw;
+    height: 150px; 
+    background-image: url('Wave2.png'); 
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.boba img {
+    position: absolute;
+}
+
+.boba1 { top: 23%; left: 7%; width: 135px;}
+.boba2 { top: 15%; right: 5%; width: 120px;}
+.boba3 { top: 33%; right: 36%; width: 70px;}
+.boba4 { bottom: 40%; right: 5%; }
+.boba5 { bottom: 10%; left: 35%; width: 120px;}
+.boba6 { bottom: 6%; right: 5%; width: 100px;}
+.boba7 { bottom: 3.5%; right: 40%; width: 70px;}
+.boba8 { bottom: 10%; left: 2%; }
+
+.formulir {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+}
+
+.kontakform {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 100px;
+    border-radius: 20px;
+    background-color: #FCF3E3;
+  }
+
+.kontakform h3 {
+    margin-bottom: 20px;
+    color: #013D5A;
+    text-decoration: underline;
+}
+.label {
+    font-weight:500;
+    color: #013D5A;
+  }
+  
+.input, textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #013D5A;
+    border-radius: 10px;
+  }
+  
+.btnform {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #013D5A;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+.btnform:hover {
+    background-color: #e78f35;
+  }
+  
+  .error {
+    color: red;
+    font-size: 0.9em;
+  }
+
+.footer {
+    background-color: #013D5A; 
+    padding: 40px 60px;
+    color: white;
+    display: flex;
+    justify-content: center; 
+    gap: 20px;
+    align-items: center;
+    max-width: 1200px; 
+    margin: 0 auto; 
+    flex-wrap: wrap;
+}
+
+.footer-logo img {
+    width: 200px; 
+    margin-right: 500px;
+}
+
+.footer-right {
+    text-align: right;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links ul li {
+    margin: 5px 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.footer-links ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-links ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-email {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.footer-copyright {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+@media (max-width: 1200px) {
+    .hero-content {
+        max-width: 800px;
+    }
     
-    <!--navbar-->
-    <nav class="navbar">
-        <div class="logo">
-            <img src="logo.png" alt="Logo Portofolio">
-        </div>
-        <div class="hamburger" id="hamburger">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>        
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skill">Skill</a></li>
-            <li><a href="#portfolio">Portofolio</a></li>
-        </ul>
-    </nav>
+    .about-content, .skills-container, .portfolio-container {
+        max-width: 90%;
+    }
+    
+    .hero .gambarhome {
+        right: 50px;
+        max-width: 300px;
+    }
+}
 
-    <!--home-->
-    <section id="home" class="hero">
-        <div class="gambarhome">
-            <img src="gambarhome.png" alt="Gambar home">
-        </div>
-        <div class="hero-content">
-            <h2>Hallo!</h2>
-            <h1>Saya <span><em>Novali Eriana Putri</em></span>,</h1>
-            <p>Mahasiswa Informatika di Universitas Siliwangi, Kota Tasikmalaya. Saya selalu tertarik untuk mempelajari hal baru dan terus mengasah kreativitas saya. Di bidang Informatika, saya memiliki ketertarikan khusus pada desain UI/UX, karena saya yakin desain yang intuitif dan menarik dapat meningkatkan pengalaman pengguna secara signifikan. Selain itu, saya juga menyukai musik dan senang mempelajari berbagai alat musik.
-                Saya yakin bahwa dengan memanfaatkan teknologi dan juga kreativitas desain, dapat menciptakan solusi yang tidak hanya efektif tetapi juga menarik dan bermanfaat.</p>
-            <a href="#portfolio" class="btn">Portofolio &gt;&gt;&gt;</a>
-        </div>
-        <div class="wave"></div>
-    </section>
+@media (max-width: 1024px) {
+    .navbar {
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+    }
+    
+    .hero-content {
+        margin-top: 100px;
+        padding: 0px 30px;
+    }
+    
+    .hero .gambarhome {
+        max-width: 250px;
+    }
+    
+    .about {
+        height: auto;
+        padding: 60px 30px;
+    }
+    
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .profile-pic {
+        margin-right: 0;
+        margin-bottom: 30px;
+        width: 350px;
+        height: 350px;
+    }
+    
+    .identity-header {
+        justify-content: center;
+    }
+    
+    .identity ul {
+        text-align: left;
+    }
+    
+    .skills-container {
+        padding: 0 20px;
+    }
+    
+    .skill-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .skill-item:nth-child(5) {
+        grid-column: 1 / span 2;
+        margin-left: 0;
+        justify-self: center;
+    }
+    
+    .why-hire {
+        width: 80%;
+    }
+    
+    .testimonial h3 {
+        width: 30%;
+    }
+    
+    .testimonial-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .testimonial-item:nth-child(3) {
+        grid-column: 1 / span 2;
+        max-width: 500px;
+        justify-self: center;
+    }
+    
+    .portfolio {
+        height: auto;
+        padding: 60px 30px 100px;
+    }
+    
+    .portfolio h2 {
+        margin-top: 120px;
+    }
+    
+    .portfolio-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .portfolio-item:nth-child(3) {
+        grid-column: 1 / span 2;
+        max-width: 500px;
+        justify-self: center;
+    }
+    
+    .footer {
+        padding: 30px 20px;
+    }
+    
+    .footer-logo img {
+        margin-right: 200px;
+    }
+}
 
-    <!--about-->
-    <section id="about" class="about">
-        <div class="about-content">
-            <img src="profile.png" alt="Foto Profil" class="profile-pic">
-            <div class="identity">
-                <div class="identity-header">
-                    <h2>Meet My Identity</h2>
-                    <img src="identitaslogo.png" alt="Logo Identitas" class="side-image">
-                </div>
-                <ul>
-                    <li>Nama : Novali Eriana Putri</li>
-                    <li>Pendidikan : Mahasiswa Informatika, Universitas Siliwangi</li>
-                    <li>Domisili : Tasikmalaya</li>
-                    <li>Email : 237006020@student.unsil.ac.id</li>
-                </ul>
-                <div class="skills-container">
-                    <div class="skill-box">
-                        <h3>Keterampilan</h3>
-                        <ul>
-                            <li>Desain UI/UX menggunakan Figma</li>
-                            <li>Membuat poster dan desain grafis menggunakan Canva</li>
-                        </ul>
-                    </div>
-                    <div class="skill-box">
-                        <h3>Minat</h3>
-                        <ul>
-                            <li>Mendesain antarmuka yang menarik dan mudah digunakan</li>
-                            <li>Mengeksplorasi tren desain terbaru</li>
-                            <li>Seni visual dan musik</li>
-                        </ul>
-                    </div>
-                    <div class="skill-box">
-                        <h3>Pengalaman</h3>
-                        <ul>
-                            <li>Membuat desain poster dan konten visual untuk proyek pribadi dan organisasi</li>
-                            <li>Merancang tampilan antarmuka untuk website menggunakan Figma</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="bubble">
-            <img src="bubble1.png" alt="Bubbles1" class="bubble1">
-            <img src="bubble2.png" alt="Bubbles2" class="bubble2">
-            <img src="bubble3.png" alt="Bubbles3" class="bubble3">
-            <img src="bubble4.png" alt="Bubbles4" class="bubble4">
-            <img src="bubble5.png" alt="Bubbles5" class="bubble5">
-            <img src="bubble6.png" alt="Bubbles6" class="bubble6">
-        </div>
-    </section>
+@media (max-width: 768px) {
+    .container,
+  .hero,
+  .about,
+  .skills,
+  .portfolio,
+  .testimonial,
+  .footer {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
 
-    <!--skill-->
-    <section id="skill" class="skills">
-        <h2>Skill</h2>
-        <div class="skill-list">
-            <div class="skill-item">
-                <span class="skill-number">01</span>
-                <div class="skill-text">
-                    <p class="skill-title">UI/UX Design (Figma)</p>
-                    <p class="skill-percentage">80%</p>
-                </div>
-            </div>
-            <div class="skill-item">
-                <span class="skill-number">02</span>
-                <div class="skill-text">
-                    <p class="skill-title">Desain Grafis (Canva)</p>
-                    <p class="skill-percentage">90%</p>
-                </div>
-            </div>
-            <div class="skill-item">
-                <span class="skill-number">03</span>
-                <div class="skill-text">
-                    <p class="skill-title">Wireframing & Prototyping</p>
-                    <p class="skill-percentage">70%</p>
-                </div>
-            </div>
-            <div class="skill-item">
-                <span class="skill-number">04</span>
-                <div class="skill-text">
-                    <p class="skill-title">Creative Thinking</p>
-                    <p class="skill-percentage">78%</p>
-                </div>
-            </div>
-            <div class="skill-item">
-                <span class="skill-number">05</span>
-                <div class="skill-text">
-                    <p class="skill-title">Collaboration & Communication</p>
-                    <p class="skill-percentage">80%</p>
-                </div>
-            </div>
-        </div>        
-        <div class="why-hire">
-            <h3>Kenapa mempekerjakan saya?</h3>
-            <ul>
-                <li>Desain yang Fungsional & Estetis</li>
-                <li>Keahlian dalam UI/UX & Desain Grafis</li>
-                <li>Fleksibel & Terbuka terhadap Feedback</li>
-                <li>Bekerja dengan Detail & Tepat Waktu</li>
-            </ul>
-        </div>
-        <div class="testimonial">
-            <h3>Testimoni Client</h3>
-            <div class="testimonial-container">
-                <div class="testimonial-item">
-                    <img src="client1.png" alt="Nindira Yasa Zakiah">
-                    <p>"Bener-bener puas sama hasil desainnya. Desainnya keren, simpel, dan sesuai banget sama yang aku butuhin. Plus, prosesnya cepet dan komunikasinya enak."</p>
-                    <h4>- Nindira Yasa Zakiah</h4>
-                </div>
-                <div class="testimonial-item">
-                    <img src="client2.png" alt="Naya Nur Ayuningsih">
-                    <p>"Thank you banget, desainnya cakep dan sesuai sama konsep yang aku bayangin. Fleksibel banget dan revisinya juga cepet."</p>
-                    <h4>- Nayla Nur Ayuningsih</h4>
-                </div>
-                <div class="testimonial-item">
-                    <img src="client3.png" alt="Nailah Zahrah A">
-                    <p>"Kerja sama yang asik banget! Ngerjainnya teliti, gampang diajak diskusi, dan hasilnya lebih dari ekspektasi. Bakal balik lagi buat next project."</p>
-                    <h4>- Nailah Zahrah A</h4>
-                </div>
-            </div>
-        </div>
-    </section>
+    .navbar {
+        padding: 10px 20px;
+        flex-direction: column;
+    }
+    
+    .navbar .logo {
+        margin-bottom: 10px;
+    }
+    
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #FCF3E3;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .navbar ul.active {
+        display: flex;
+    }
 
-    <!--portofolio-->
-    <section id="portfolio" class="portfolio">
-        <div class="wave2"></div>
-        <h2>Portofolio</h2>
-        <div class="portfolio-container">
-            <div class="portfolio-item">
-                <img src="porto1.png" alt="Website Mobile Desa Sukaratu">
-                <p>Website Mobile Desa Sukaratu</p>
-            </div>
-            <div class="portfolio-item">
-                <img src="porto2.png" alt="Poster Konser Akbar Seni Musik">
-                <p>Poster Konser Akbar Seni Musik</p>
-            </div>
-            <div class="portfolio-item">
-                <img src="porto3.png" alt="Website Purwa Caraka Cabang Tasikmalaya">
-                <p>Website Purwa Caraka Cabang Tasikmalaya</p>
-            </div>
-        </div>
-        <div class="boba">
-            <img src="boba1.png" alt="Boba1" class="boba1">
-            <img src="boba2.png" alt="Boba2" class="boba2">
-            <img src="boba3.png" alt="Boba3" class="boba3">
-            <img src="boba4.png" alt="Boba4" class="boba4">
-            <img src="boba5.png" alt="Boba5" class="boba5">
-            <img src="boba6.png" alt="Boba6" class="boba6">
-            <img src="boba7.png" alt="Boba7" class="boba7">
-            <img src="boba8.png" alt="Boba8" class="boba8">
-        </div>
-    </section>
+    .hamburger {
+        display: flex;
+    }
 
-    <!--formulir-->
-    <section id="formulir" class="formulir">
-        <div class="kontakform">
-            <h3>Ada Pertanyaan? Kirim Pesan!</h3>
-            <div class="isiform">
-                <label class="label">Nama Lengkap (maks. 50 karakter):</label><br>
-                <input class="input" type="text" id="nama" maxlength="50"><br>
-                <span class="error" id="error-nama"></span><br>
-            
-                <label class="label">Email:</label><br>
-                <input class="input" type="text" id="email"><br>
-                <span class="error" id="error-email"></span><br>
-            
-                <label class="label">Nomor Handphone (maks. 15 digit):</label><br>
-                <input class="input" type="text" id="handphone" maxlength="15"><br>
-                <span class="error" id="error-handphone"></span><br>
-            
-                <label class="label">Pesan (maks. 200 karakter):</label><br>
-                <textarea id="pesan" maxlength="200"></textarea><br>
-                <span class="error" id="error-pesan"></span><br><br>
-            </div>
-            <button class="btnform" type="submit">Kirim</button>
-        </div>
-    </section>
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #013D5A;
+        flex-direction: column;
+        align-items: center;
+        display: none; /* Sembunyikan awalnya */
+    }
 
-    <!--footer-->
-    <footer class="footer">
-        <div class="footer-logo">
-            <img src="footerlogo.png" alt="Logo footer">
-        </div>
-        <div class="footer-links">
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skill">Skill</a></li>
-                <li><a href="#portfolio">Portofolio</a></li>
-                <li>Email: 237006020@student.unsil.ac.id</li>
-            </ul>
-        </div>
-        <div class="footer-copyright">
-            <p>&copy; 2025 Novali Eriana Putri 237006020. All rights reserved.</p>
-        </div>
-    </footer>
-    <script src="script.js"></script>
-</body>
-</html>
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .nav-links.show {
+        display: flex; /* Munculkan menu ketika diklik */
+    }
+    
+    .hero {
+        padding-top: 150px;
+    }
+    
+    .hero-content {
+        margin-top: 30px;
+        text-align: center;
+    }
+    
+    .hero-content h1 {
+        font-size: 24px;
+    }
+    
+    .hero .gambarhome {
+        position: relative;
+        right: auto;
+        max-width: 250px;
+        margin: 0 auto 30px;
+    }
+    
+    .profile-pic {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .skill-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .skill-item:nth-child(4),
+    .skill-item:nth-child(5) {
+        grid-column: auto;
+        margin-left: 0;
+    }
+    
+    .why-hire {
+        width: 100%;
+    }
+    
+    .testimonial h3 {
+        width: 60%;
+    }
+    
+    .testimonial-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .testimonial-item:nth-child(3) {
+        grid-column: auto;
+    }
+    
+    .portfolio h2 {
+        margin-top: 80px;
+    }
+    
+    .portfolio-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .portfolio-item:nth-child(3) {
+        grid-column: auto;
+    }
+    
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-logo img {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .footer-right {
+        text-align: center;
+    }
+    
+    /* Adjustments for bubbles and boba decorations */
+    .bubble img, .boba img {
+        width: 70% !important;
+    }
+    
+    /* Fix for the wave images */
+    .wave {
+        height: 150px;
+    }
+    
+    .wave2 {
+        height: 100px;
+    }
+}
+
+/* Extra Small Devices (up to 480px) */
+@media (max-width: 480px) {
+    .navbar ul {
+        flex-wrap: wrap;
+    }
+    
+    .navbar ul li {
+        margin: 5px 10px;
+    }
+    
+    .hero-content h1 {
+        font-size: 22px;
+    }
+    
+    .hero-content h2 {
+        font-size: 18px;
+    }
+    
+    .hero-content p {
+        font-size: 14px;
+    }
+    
+    .profile-pic {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .identity-header h2 {
+        font-size: 20px;
+    }
+    
+    .identity ul li {
+        font-size: 14px;
+    }
+    
+    .skill-box h3 {
+        font-size: 18px;
+    }
+    
+    .testimonial h3 {
+        width: 80%;
+    }
+}
