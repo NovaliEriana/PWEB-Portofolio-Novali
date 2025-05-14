@@ -72,12 +72,24 @@ $(document).ready(function () {
           pesan: pesan
         },
         success: function (response) {
-          alert(response); // Menampilkan respons dari proses.php
-          // Reset form jika berhasil
+          Swal.fire({
+            title: "Berhasil!",
+            text: response,
+            icon: "success",
+            confirmButtonText: "Oke",
+            confirmButtonColor: "#004e4e"
+          });
+
+          // Reset form
           $("#nama, #email, #handphone, #pesan").val("");
         },
         error: function () {
-          alert("Terjadi kesalahan saat mengirim data.");
+          Swal.fire({
+            title: "Gagal!",
+            text: "Terjadi kesalahan saat mengirim data.",
+            icon: "error",
+            confirmButtonText: "Coba Lagi"
+          });
         }
       });
     }
