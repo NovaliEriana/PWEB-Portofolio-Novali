@@ -6,6 +6,7 @@
     <title>Portofolio Novali Eriana Putri</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     
@@ -20,7 +21,7 @@
             <div></div>
         </div>        
         <ul class="nav-links" id="navLinks">
-            <li><a href="#home">Home</a></li>
+            <li><a href="#home" class="active">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#skill">Skill</a></li>
             <li><a href="#portfolio">Portofolio</a></li>
@@ -191,6 +192,31 @@
             <img src="boba6.png" alt="Boba6" class="boba6">
             <img src="boba7.png" alt="Boba7" class="boba7">
             <img src="boba8.png" alt="Boba8" class="boba8">
+        </div>
+    </section>
+
+    <!--formulir-->
+    <section id="formulir" class="formulir">
+        <div class="kontakform">
+            <h3>Ada Pertanyaan? Kirim Pesan!</h3>
+            <div class="isiform">
+                <label class="label">Nama Lengkap (maks. 50 karakter):</label><br>
+                <input class="input" type="text" id="nama" maxlength="50"><br>
+                <span class="error" id="error-nama"></span><br>
+            
+                <label class="label">Email:</label><br>
+                <input class="input" type="text" id="email"><br>
+                <span class="error" id="error-email"></span><br>
+            
+                <label class="label">Nomor Handphone (maks. 15 digit):</label><br>
+                <input class="input" type="text" id="handphone" maxlength="15"><br>
+                <span class="error" id="error-handphone"></span><br>
+            
+                <label class="label">Pesan (maks. 200 karakter):</label><br>
+                <textarea id="pesan" maxlength="200"></textarea><br>
+                <span class="error" id="error-pesan"></span><br><br>
+            </div>
+            <button class="btnform" type="submit">Kirim</button>
         </div>
     </section>
 
