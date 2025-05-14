@@ -19,28 +19,26 @@ navLinks.forEach(link => {
 });
 
 $(document).ready(function () {
-  // Tangani event klik pada tombol Kirim
   $(".btnform").click(function (e) {
-    e.preventDefault(); // Mencegah aksi default (jika nanti pakai form)
+    e.preventDefault(); // Mencegah reload
 
     let valid = true;
-
-    // Reset error
-    $(".error").text("");
+    $(".error").text(""); // Bersihkan error sebelumnya
 
     const nama = $("#nama").val().trim();
     const email = $("#email").val().trim();
     const handphone = $("#handphone").val().trim();
     const pesan = $("#pesan").val().trim();
 
-    // Validasi nama
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phonePattern = /^[0-9]{10,15}$/;
+
+    // Validasi
     if (nama === "") {
       $("#error-nama").text("Nama wajib diisi.");
       valid = false;
     }
 
-    // Validasi email
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (email === "") {
       $("#error-email").text("Email wajib diisi.");
       valid = false;
@@ -49,8 +47,6 @@ $(document).ready(function () {
       valid = false;
     }
 
-    // Validasi handphone
-    const phonePattern = /^[0-9]{10,15}$/;
     if (handphone === "") {
       $("#error-handphone").text("Nomor handphone wajib diisi.");
       valid = false;
@@ -59,15 +55,31 @@ $(document).ready(function () {
       valid = false;
     }
 
-    // Validasi pesan
     if (pesan === "") {
       $("#error-pesan").text("Pesan wajib diisi.");
       valid = false;
     }
 
+    // Kirim via AJAX ke proses.php jika valid
     if (valid) {
-      alert("Formulir berhasil dikirim!");
-      // Tambahkan pengiriman data via AJAX jika perlu
+      $.ajax({
+        url: "proses.php",
+        method: "POST",
+        data: {
+          nama: nama,
+          email: email,
+          handphone: handphone,
+          pesan: pesan
+        },
+        success: function (response) {
+          alert(response); // Menampilkan respons dari proses.php
+          // Reset form jika berhasil
+          $("#nama, #email, #handphone, #pesan").val("");
+        },
+        error: function () {
+          alert("Terjadi kesalahan saat mengirim data.");
+        }
+      });
     }
   });
 });
